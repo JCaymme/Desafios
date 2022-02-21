@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+
+  flask:
+    build: ./flask
+    container_name: flask
+    restart: always
+    environment:
+      - APP_NAME=FlaskHello
+    ports:
+      - "5000:5000"
+    networks:
+      - proxy
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
