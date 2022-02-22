@@ -1,5 +1,9 @@
 !#/bin/bash
 
+echo "Build docker container"
+
+docker-compose up -d --build
+
 echo "Download desafio.tar"
 
 wget http://localhost/desafio.tar 
